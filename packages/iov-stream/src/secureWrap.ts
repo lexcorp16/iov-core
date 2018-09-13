@@ -29,7 +29,14 @@ export class Foo {
 // the output cannot leak secret, even if we force the type systems
 export function secureFoo(raw: Foo): IFoo {
   return {
-    shared: raw.shared,
-    isSecret: (guess: string) => raw.isSecret(guess),
+    get shared(): string {
+      return raw.shared;
+    },
+    // set is not needed for readonly variables...
+    set shared(val: string) {
+      // tslint:disable-next-line:no-object-mutation
+      (raw as any).shared = val;
+    },
+    isSecret: raw.isSecret.bind(raw),
   };
 }
