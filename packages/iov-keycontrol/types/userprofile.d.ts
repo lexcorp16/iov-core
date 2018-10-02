@@ -28,7 +28,7 @@ export declare class UserProfile {
     lock(): void;
     addEntry(entry: KeyringEntry): void;
     setEntryLabel(id: number | KeyringEntryId, label: string | undefined): void;
-    createIdentity(id: number | KeyringEntryId): Promise<LocalIdentity>;
+    createIdentity(entryId: number | KeyringEntryId, identityOptions: any): Promise<LocalIdentity>;
     setIdentityLabel(id: number | KeyringEntryId, identity: PublicIdentity, label: string | undefined): void;
     getIdentities(id: number | KeyringEntryId): ReadonlyArray<LocalIdentity>;
     signTransaction(id: number | KeyringEntryId, identity: PublicIdentity, transaction: UnsignedTransaction, codec: TxCodec, nonce: Nonce): Promise<SignedTransaction>;

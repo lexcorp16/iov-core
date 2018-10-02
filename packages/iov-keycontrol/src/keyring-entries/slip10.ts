@@ -170,7 +170,7 @@ export class Slip10KeyringEntry implements KeyringEntry {
     this.labelProducer.update(label);
   }
 
-  public async createIdentity(): Promise<LocalIdentity> {
+  public async createIdentity(_: number): Promise<LocalIdentity> {
     throw new Error("Slip10KeyringEntry.createIdentity must not be called directly. Use derived type.");
   }
 

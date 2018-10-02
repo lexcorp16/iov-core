@@ -191,9 +191,12 @@ export class UserProfile {
   }
 
   // creates an identitiy in the n-th keyring entry of the primary keyring
-  public async createIdentity(id: number | KeyringEntryId): Promise<LocalIdentity> {
-    const entry = this.entryInPrimaryKeyring(id);
-    return entry.createIdentity();
+  public async createIdentity(
+    entryId: number | KeyringEntryId,
+    identityOptions: any,
+  ): Promise<LocalIdentity> {
+    const entry = this.entryInPrimaryKeyring(entryId);
+    return entry.createIdentity(identityOptions);
   }
 
   // assigns a new label to one of the identities
