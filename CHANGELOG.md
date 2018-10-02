@@ -2,6 +2,10 @@
 
 ## 0.7.0 (not yet released)
 
+Breaking changes
+
+* Ed25519KeyringEntry now takes a keypair as an argument in createIdentity()
+
 ## 0.6.0
 
 * @iov/core: expose Ed25519KeyringEntry
